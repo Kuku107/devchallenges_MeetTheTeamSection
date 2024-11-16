@@ -14,10 +14,10 @@ body {
 }
 
 .container {
-    width: 568px;
-    height: auto;
     background-color: #F3F4F6;
     position: relative;
+    border-radius: 24px;
+    overflow: hidden;
 }
 
 .container > img {
@@ -28,18 +28,27 @@ body {
 }
 
 section {
-    max-width: 568px;
     position: relative;
     z-index: 1;
+    display: grid;
+    grid-template-rows: auto repeat(6, 1fr);
+    grid-template-areas:
+        "content"
+        "card1"
+        "card2"
+        "card3"
+        "card4"
+        "card5"
+        "card-all-member";
 }
 
 .content {
-    max-width: 568px;
-    /*height: 288px;*/
+    height: 288px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     padding: 32px;
+    grid-area: content;
 }
 
 .content > p:nth-child(1) {
@@ -61,4 +70,118 @@ section {
     font-size: 1rem;
     color: #394150;
 }
+
+.card {
+    position: relative;
+    z-index: 1;
+}
+
+.card img:nth-child(1) {
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+    position: relative;
+    z-index: 2;
+}
+
+.card img:nth-child(3) {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.card-info {
+    width: fit-content;
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    z-index: 4;
+}
+
+.card-info p:nth-child(1) {
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: #FFFEFE;
+}
+
+.card-info p:nth-child(2) {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #F3F4F6;
+}
+
+#card-1 {
+    background-color: #C1B6F8;
+    grid-area: card1;
+}
+
+#card-2 {
+    background-color: #EDACD2;
+    grid-area: card2;
+}
+
+#card-3 {
+    background-color: #9DC4F8;
+    grid-area: card3;
+}
+
+#card-4 {
+    background-color: #F8D8B0;
+    grid-area: card4;
+}
+
+#card-5 {
+    background-color: #86E7D4;
+    grid-area: card5;
+}
+
+#card-all-member {
+    grid-area: card-all-member;
+    width: 100%;
+    height: 100%;
+    padding: 32px;
+    display: flex;
+    gap: 4px;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+#card-all-member p {
+    width: fit-content;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #394150;
+}
+
+#card-all-member img {
+    padding-top: 4px;
+    width: 16px;
+    height: 16px;
+}
+
+@media (min-width: 1024px) {
+    section {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas:
+        "content content content"
+        "card1 card2 card3"
+        "card-all-member card4 card5";
+    }
+}
+
+@media (min-width: 1280px) {
+    section {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas:
+        "content content card1 card2"
+        "card-all-member card3 card4 card5";
+    }
+}
+
+
 

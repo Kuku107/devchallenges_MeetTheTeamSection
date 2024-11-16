@@ -17,10 +17,20 @@ body {
     width: 568px;
     height: auto;
     background-color: #F3F4F6;
+    position: relative;
+}
+
+.container > img {
+    position : absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
 section {
     max-width: 568px;
+    position: relative;
+    z-index: 1;
 }
 
 .content {
